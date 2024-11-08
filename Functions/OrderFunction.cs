@@ -3,18 +3,18 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 
-namespace OrderProvider
+namespace OrderProvider.Functions
 {
-    public class Function1
+    public class OrderFunction
     {
-        private readonly ILogger<Function1> _logger;
+        private readonly ILogger<OrderFunction> _logger;
 
-        public Function1(ILogger<Function1> logger)
+        public OrderFunction(ILogger<OrderFunction> logger)
         {
             _logger = logger;
         }
 
-        [Function("Function1")]
+        [Function("OrderFunction")]
         public IActionResult Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequest req)
         {
             _logger.LogInformation("C# HTTP trigger function processed a request.");
